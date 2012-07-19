@@ -50,7 +50,7 @@
  *   51 Franklin St, Fifth Floor,
  *   Boston, MA 02110, USA
  */
-
+/*modificado por Luz*/
 package de.irf.it.rmg.core.teikoku.metrics;
 
 import java.io.File;
@@ -82,61 +82,61 @@ import de.irf.it.rmg.sim.kuiga.annotations.MomentOfNotification;
  * This class serves as the basic abstract model for each implemented metric.
  * Therefore, it includes the basic methodes for persistance management as well
  * as an abstractt facade that establishes a metric specific view of each job.
- * 
+ *
  * @author <a href="mailto:christian.grimme@udo.edu">Christian Grimme</a>, <a
  *         href="mailto:joachim.lepping@udo.edu">Joachim Lepping</a>, and <a
  *         href="mailto:alexander.papaspyrou@udo.edu">Alexander Papaspyrou</a>
  *         (last edited by $Author$)
  * @version $Version$, $Date$
- * 
+ *
  */
 @MomentOfNotification()
 @EventSink
 abstract public class AbstractMetric
 		implements Metrics {
-	
+
 	/**
 	 * The default log facility for this class, using the <a
 	 * href="http://commons.apache.org/logging">Apache "commons.logging" API</a>.
-	 * 
+	 *
 	 * @see org.apache.commons.logging.Log
-	 */	
+	 */
 	final private static Log log = LogFactory.getLog(AbstractMetric.class);
 
 	/**
 	 * TODO: not yet commented
-	 * 
+	 *
 	 */
 	final private PersistentStoreFactory persistentStoreFactory;
 
 	/**
 	 * TODO: not yet commented
-	 * 
+	 *
 	 */
 	private PersistentStore persistentStore;
-	
+
 	/**
 	 * TODO: not yet commented
-	 * 
+	 *
 	 */
 	private boolean initialized;
 
 	/**
 	 * TODO: not yet commented
-	 * 
+	 *
 	 */
 	private String name;
 
 	/**
 	 * Pointer to the Site, the Metric is connected with
 	 */
-	private Site site;	
-	
+	private Site site;
+
 	/**
 	 * LatestValues Of the Metric
 	 */
 	private Object[] latestValues;
-	
+
 	/**
 	 * LatestValues of the Metric for
 	 * Sitespecific metrics like jobexchange or awrt of delivered jobs
@@ -147,23 +147,23 @@ abstract public class AbstractMetric
 	 * flag for manual metricWriting
 	 * if true, the metric will write itself for example
 	 * at each eventoccursion
-	 * if false (Default) the metric will be written on every statechange in the 
+	 * if false (Default) the metric will be written on every statechange in the
 	 * simulated grid
 	 */
 	private boolean manualPermanent;
 
-	
+
 	/**
 	 * Abstract constructor
-	 * 
+	 *
 	 * @throws MetricsException
 	 */
 	protected AbstractMetric() {
-		this.initialized = false;	
+		this.initialized = false;
 		this.manualPermanent = true;
 		this.persistentStoreFactory = new PersistentStoreFactory();
 	}
-	
+
 	private void initializeMetric(){
 		/*
 		 * initialize latest values
@@ -175,38 +175,38 @@ abstract public class AbstractMetric
 		 */
 		this.persistentStore = this.persistentStoreFactory.createPersistentStoreInstance();
 		persistentStore.makePersistent(this.getHeader());
-	
+
 		/*
 		 * register for accepted event types
 		 */
-		
+
 	}
 
 	/**
 	 * TODO: not yet commented
-	 * 
+	 *
 	 * @return
 	 */
 	abstract protected Object[] getHeader();
 
 	/**
 	 * TODO: not yet commented
-	 * 
+	 *
 	 * @return
 	 */
 	abstract protected Object[] getLatestValuesPrototype();
 
 	/**
 	 * TODO: not yet commented
-	 * 
+	 *
 	 * @param p
 	 * @return
 	 */
 	protected URL getOutputPath(){
 		URL result = null;
-		
+
 		String sitename=this.site==null? "":this.site.getName();
-		
+
 		Configuration c = RuntimeEnvironment.getInstance().getConfiguration()
 				.subset(RuntimeEnvironment.CONFIGURATION_SECTION);
 		String workingDirectory = c
@@ -214,13 +214,13 @@ abstract public class AbstractMetric
 		File file = null;
 		if (this.persistentStoreFactory.outputFileName == null) {
 			file = new File(workingDirectory + File.separator +
-					Constants.CONFIGURATION_METRICS_WRITER_OUTPUTFILE_SUBDIRECTORY + File.separator 
+					Constants.CONFIGURATION_METRICS_WRITER_OUTPUTFILE_SUBDIRECTORY + File.separator
 					+ this.getClass().getSimpleName() + File.separator
 					+ this.name + "-" + sitename);
 		}
 		else {
 			file = new File(workingDirectory + File.separator +
-					Constants.CONFIGURATION_METRICS_WRITER_OUTPUTFILE_SUBDIRECTORY + File.separator 
+					Constants.CONFIGURATION_METRICS_WRITER_OUTPUTFILE_SUBDIRECTORY + File.separator
 					+ this.getClass().getSimpleName() + File.separator
 					+  sitename + "-" + this.persistentStoreFactory.outputFileName);
 		}
@@ -243,7 +243,7 @@ abstract public class AbstractMetric
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see de.irf.it.rmg.core.teikoku.metrics.Metrics#getName()
 	 */
 	final public String getName() {
@@ -252,7 +252,7 @@ abstract public class AbstractMetric
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see de.irf.it.rmg.core.teikoku.metrics.Metrics#setName(java.lang.String)
 	 */
 	final public void setName(String name) {
@@ -265,7 +265,7 @@ abstract public class AbstractMetric
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see de.irf.it.rmg.core.util.Initializable#isInitialized()
 	 */
 	public boolean isInitialized() {
@@ -274,7 +274,7 @@ abstract public class AbstractMetric
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see de.irf.it.rmg.core.util.Initializable#initialize()
 	 */
 	public void initialize()
@@ -285,9 +285,9 @@ abstract public class AbstractMetric
 			throw new InitializationException(msg);
 		} // if
 		this.persistentStoreFactory.initialize();
-		
+
 		initializeMetric();
-		
+
 		this.initialized = true;
 	}
 
@@ -297,7 +297,7 @@ abstract public class AbstractMetric
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see de.irf.it.rmg.core.util.Ephemeral#commence()
 	 */
 	public void commence() {
@@ -306,14 +306,14 @@ abstract public class AbstractMetric
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see de.irf.it.rmg.core.util.Ephemeral#terminate()
 	 */
 	public void terminate() {
 		//Write the latestValues on the end of the simulation
 		this.manualMakePermanent();
 	}
-	
+
 	/**
 	 * Sets the latestValues of the Metric
 	 * @param value
@@ -321,7 +321,7 @@ abstract public class AbstractMetric
 	public void setLatestValues(Object[] value){
 		this.latestValues=value;
 	}
-	
+
 	/**returns the latestValues of the Metric
 	 * @return
 	 */
@@ -332,7 +332,7 @@ abstract public class AbstractMetric
 			return null;
 		}
 	}
-	
+
 	/**
 	 * Site-specific return of the latestValues
 	 * @param site
@@ -342,7 +342,7 @@ abstract public class AbstractMetric
 		if (site==null) return getCurrentValues(); else
 		return latestValuesMap.get(site)==null?getCurrentValues():latestValuesMap.get(site);
 	}
-		
+
 	/**
 	 * Site-specific set of the latest Values
 	 * @param site
@@ -365,7 +365,7 @@ abstract public class AbstractMetric
 	public void setPersistentStore(PersistentStore persistentStore) {
 		this.persistentStore = persistentStore;
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see de.irf.it.rmg.core.teikoku.metrics.Metrics#makePermanent()
 	 */
@@ -382,7 +382,7 @@ abstract public class AbstractMetric
 			}
 		}
 	}
-	
+
 	public void manualMakePermanent(){
 		if (manualPermanent){
 			if (!this.latestValuesMap.isEmpty()){
@@ -396,7 +396,7 @@ abstract public class AbstractMetric
 			}
 		}
 	}
-	
+
 	/**
 	 * configuration/method for metrics with a specific timewindow
 	 * like Windowed Utilization
@@ -405,8 +405,8 @@ abstract public class AbstractMetric
 	public void setWindowSize(long windowSize){
 		//leave implementation to subclass
 	}
-	
-	
+
+
 	/**
 	 * sets the flag manual for manual persistence writing by
 	 * the Metric
@@ -415,7 +415,7 @@ abstract public class AbstractMetric
 	public void setManualPermanent(boolean mp){
 		this.manualPermanent=mp;
 	}
-	
+
 	/**
 	 * returns the value of the flag for manual metric-writing
 	 * @return
@@ -423,47 +423,47 @@ abstract public class AbstractMetric
 	public boolean getManualPermanent(){
 		return this.manualPermanent;
 	}
-	
+
 	/**
 	 * TODO: not yet commented
-	 * 
+	 *
 	 * @author <a href="mailto:christian.grimme@udo.edu">Christian Grimme</a>,
 	 *         <a href="mailto:joachim.lepping@udo.edu">Joachim Lepping</a>,
 	 *         and <a href="mailto:alexander.papaspyrou@udo.edu">Alexander
 	 *         Papaspyrou</a> (last edited by $Author$)
 	 * @version $Version$, $Date$
-	 * 
+	 *
 	 */
 	public class PersistentStoreFactory
 			implements Initializable {
 
 		/**
 		 * TODO: not yet commented
-		 * 
+		 *
 		 */
 		private boolean initialized = false;
 
 		/**
 		 * TODO: not yet commented
-		 * 
+		 *
 		 */
 		private Class<? extends PersistentStore> persistentStorePrototype;
 
 		/**
 		 * TODO: not yet commented
-		 * 
+		 *
 		 */
 		private boolean allowOverwritePrototype;
 
 		/**
 		 * TODO: not yet commented
-		 * 
+		 *
 		 */
 		private String outputFileName = null;
 
 		/**
 		 * TODO: not yet commented
-		 * 
+		 *
 		 * @param a
 		 * @return
 		 */
@@ -502,7 +502,7 @@ abstract public class AbstractMetric
 
 		/*
 		 * (non-Javadoc)
-		 * 
+		 *
 		 * @see de.irf.it.rmg.core.util.Initializable#isInitialized()
 		 */
 		public boolean isInitialized() {
@@ -511,7 +511,7 @@ abstract public class AbstractMetric
 
 		/*
 		 * (non-Javadoc)
-		 * 
+		 *
 		 * @see de.irf.it.rmg.core.util.Initializable#initialize()
 		 */
 		public void initialize()
