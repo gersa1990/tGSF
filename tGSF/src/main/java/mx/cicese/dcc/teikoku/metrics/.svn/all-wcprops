@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/metrics
+END
+Makespan.class
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/metrics/Makespan.class
+END
+MetricHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/metrics/MetricHelper.java
+END
+Turnaround.class
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/metrics/Turnaround.class
+END
+WaitingTime.class
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/metrics/WaitingTime.class
+END
+MetricHelper.class
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/metrics/MetricHelper.class
+END
+ScheduleLengthRatio.class
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/metrics/ScheduleLengthRatio.class
+END
+AllWorkflow.class
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/metrics/AllWorkflow.class
+END
+BoundedSlowdown.class
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/metrics/BoundedSlowdown.class
+END
+WeightedTurnaround.class
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/metrics/WeightedTurnaround.class
+END
+SpeedUp.class
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/metrics/SpeedUp.class
+END
+Slowdown.class
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/metrics/Slowdown.class
+END

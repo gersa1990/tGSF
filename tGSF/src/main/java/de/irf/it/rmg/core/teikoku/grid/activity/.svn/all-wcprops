@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/teikoku/grid/activity
+END
+AbstractActivityBroker.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/teikoku/grid/activity/AbstractActivityBroker.java
+END
+ActivityBroker.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/teikoku/grid/activity/ActivityBroker.java
+END
+StandardActivityBroker.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/teikoku/grid/activity/StandardActivityBroker.java
+END

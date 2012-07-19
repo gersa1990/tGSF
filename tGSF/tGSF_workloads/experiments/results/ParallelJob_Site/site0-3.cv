@@ -1,0 +1,4 @@
+ job_id  cmax  Mean_waiting_time  Mean_bounded_slowdow  Sum_weighted_completion_time  Competitive_factor  Utilization 
+ 6 1080 0.0 1.0 187920.0 1.0 0.16111111111111112
+ 10 2543 0.0 1.0 3351412.0 1.0 0.5576091230829728
+ 10 2543 0.0 1.0 3351412.0 1.0 0.5576091230829728

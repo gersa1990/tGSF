@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/testingalb/!svn/ver/12/trunk/tGSF
+END
+example.log.1
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/testingalb/!svn/ver/13/trunk/tGSF/example.log.1
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/testingalb/!svn/ver/13/trunk/tGSF/log4j.properties
+END
+.project
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/testingalb/!svn/ver/13/trunk/tGSF/.project
+END
+.classpath
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/testingalb/!svn/ver/13/trunk/tGSF/.classpath
+END

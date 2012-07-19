@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/java-1.6.0-openjdk-1.6.0.0.x86_64"/>
+	<classpathentry kind="lib" path="lib"/>
+	<classpathentry kind="lib" path="/usr/share/java/apache-commons-cli.jar"/>
+	<classpathentry kind="lib" path="/usr/share/java/apache-commons-collections.jar"/>
+	<classpathentry kind="lib" path="/usr/share/java/apache-commons-configuration.jar"/>
+	<classpathentry kind="lib" path="/usr/share/java/apache-commons-daemon.jar"/>
+	<classpathentry kind="lib" path="/usr/share/java/apache-commons-lang.jar"/>
+	<classpathentry kind="lib" path="/usr/share/java/apache-commons-logging.jar"/>
+	<classpathentry kind="lib" path="/usr/share/java/log4j.jar"/>
+	<classpathentry kind="lib" path="/home/anuar/workspace/tGSF/jung2-2_0_1/collections-generic-4.01.jar"/>
+	<classpathentry kind="lib" path="/home/anuar/workspace/tGSF/jung2-2_0_1/colt-1.2.0.jar"/>
+	<classpathentry kind="lib" path="/home/anuar/workspace/tGSF/jung2-2_0_1/concurrent-1.3.4.jar"/>
+	<classpathentry kind="lib" path="/home/anuar/workspace/tGSF/jung2-2_0_1/j3d-core-1.3.1.jar"/>
+	<classpathentry kind="lib" path="/home/anuar/workspace/tGSF/jung2-2_0_1/jung-3d-2.0.1.jar"/>
+	<classpathentry kind="lib" path="/home/anuar/workspace/tGSF/jung2-2_0_1/jung-3d-demos-2.0.1.jar"/>
+	<classpathentry kind="lib" path="/home/anuar/workspace/tGSF/jung2-2_0_1/jung-algorithms-2.0.1.jar"/>
+	<classpathentry kind="lib" path="/home/anuar/workspace/tGSF/jung2-2_0_1/jung-api-2.0.1.jar"/>
+	<classpathentry kind="lib" path="/home/anuar/workspace/tGSF/jung2-2_0_1/jung-graph-impl-2.0.1.jar"/>
+	<classpathentry kind="lib" path="/home/anuar/workspace/tGSF/jung2-2_0_1/jung-io-2.0.1.jar"/>
+	<classpathentry kind="lib" path="/home/anuar/workspace/tGSF/jung2-2_0_1/jung-jai-2.0.1.jar"/>
+	<classpathentry kind="lib" path="/home/anuar/workspace/tGSF/jung2-2_0_1/jung-jai-samples-2.0.1.jar"/>
+	<classpathentry kind="lib" path="/home/anuar/workspace/tGSF/jung2-2_0_1/jung-samples-2.0.1.jar"/>
+	<classpathentry kind="lib" path="/home/anuar/workspace/tGSF/jung2-2_0_1/jung-visualization-2.0.1.jar"/>
+	<classpathentry kind="lib" path="/home/anuar/workspace/tGSF/jung2-2_0_1/stax-api-1.0.1.jar"/>
+	<classpathentry kind="lib" path="/home/anuar/workspace/tGSF/jung2-2_0_1/vecmath-1.3.1.jar"/>
+	<classpathentry kind="lib" path="/home/anuar/workspace/tGSF/jung2-2_0_1/wstx-asl-3.2.6.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/plan
+END
+AllocationPlan.class
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/plan/AllocationPlan.class
+END
+JobControlBlock.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/plan/JobControlBlock.java
+END
+AllocationEntry.class
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/plan/AllocationEntry.class
+END
+AllocationEntry.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/plan/AllocationEntry.java
+END

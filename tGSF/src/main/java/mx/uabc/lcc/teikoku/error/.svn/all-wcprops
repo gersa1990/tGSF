@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/uabc/lcc/teikoku/error
+END
+SiteUnavailabilityEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/uabc/lcc/teikoku/error/SiteUnavailabilityEvent.java
+END
+EventReason.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/uabc/lcc/teikoku/error/EventReason.java
+END
+Identificador.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/uabc/lcc/teikoku/error/Identificador.java
+END
+NoAvailableResources.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/uabc/lcc/teikoku/error/NoAvailableResources.java
+END
+Error.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/uabc/lcc/teikoku/error/Error.java
+END
+ResourceUnavailabilityEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/uabc/lcc/teikoku/error/ResourceUnavailabilityEvent.java
+END
+SiteAvailabilityEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/uabc/lcc/teikoku/error/SiteAvailabilityEvent.java
+END
+ErrorParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/uabc/lcc/teikoku/error/ErrorParser.java
+END
+ErrorManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/uabc/lcc/teikoku/error/ErrorManager.java
+END
+EventTypeCode.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/uabc/lcc/teikoku/error/EventTypeCode.java
+END
+ResourceAvailabilityEvent.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/uabc/lcc/teikoku/error/ResourceAvailabilityEvent.java
+END
