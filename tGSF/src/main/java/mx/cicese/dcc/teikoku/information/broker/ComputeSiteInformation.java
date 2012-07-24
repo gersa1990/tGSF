@@ -408,7 +408,7 @@ public class ComputeSiteInformation implements SiteInformation {
 	
 	/**
 	 * Gets the number of conferred resources 
-	
+	 *
 	 * @return the number of conferred resources
 	 */
 	public int getNumberOfConferedResources() {
