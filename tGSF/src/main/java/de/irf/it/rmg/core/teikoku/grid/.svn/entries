@@ -1,96 +1,0 @@
-10
-
-dir
-13
-https://subversion.assembla.com/svn/testingalb/trunk/tGSF/src/main/java/de/irf/it/rmg/core/teikoku/grid
-https://subversion.assembla.com/svn/testingalb
-
-
-
-2011-08-31T06:54:14.146368Z
-13
-estoesnormal
-
-
-svn:special svn:externals svn:needs-lock
-
-
-
-
-
-
-
-
-
-
-
-2e2440a8-f2e4-45cd-87c4-f93a9c76e3c3
-
-
-
-
-
-
-0
-
-SinkToSourceAdapter.java
-file
-
-
-
-
-2011-07-05T18:50:54.000000Z
-48460d7a6e1b860355d5bc12f47410ab
-2011-08-31T06:54:14.146368Z
-13
-estoesnormal
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-4868
-
-acceptance
-dir
-
-activity
-dir
-
-delegation
-dir
-
-distribution
-dir
-
-location
-dir
-
-metabrokering
-dir
-
-resource
-dir
-
-rule
-dir
-
-transfer
-dir
-
