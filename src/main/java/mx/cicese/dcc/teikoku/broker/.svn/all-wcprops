@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/broker
+END
+AbstractGridActivityBroker.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/broker/AbstractGridActivityBroker.java
+END
+ActivityBrokerRole.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/broker/ActivityBrokerRole.java
+END
+GridActivityBroker.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/broker/GridActivityBroker.java
+END
+ActivityBrokerRole.class
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/broker/ActivityBrokerRole.class
+END
+GridActivityBroker.class
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/broker/GridActivityBroker.class
+END
+AbstractGridActivityBroker.class
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/broker/AbstractGridActivityBroker.class
+END
+CentralizedGridActivityBroker.class
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/broker/CentralizedGridActivityBroker.class
+END
+CentralizedGridActivityBroker.java
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/broker/CentralizedGridActivityBroker.java
+END

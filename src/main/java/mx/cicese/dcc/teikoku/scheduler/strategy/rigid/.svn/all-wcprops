@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/strategy/rigid
+END
+MST.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/strategy/rigid/MST.java
+END
+MWWTS.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/strategy/rigid/MWWTS.java
+END
+MWT.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/strategy/rigid/MWT.java
+END
+MPL.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/strategy/rigid/MPL.java
+END
+RStrategy.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/strategy/rigid/RStrategy.java
+END
+Rand.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/strategy/rigid/Rand.java
+END
+MLB.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/strategy/rigid/MLB.java
+END
+MCT.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/strategy/rigid/MCT.java
+END
+MWTAS.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/strategy/rigid/MWTAS.java
+END
+MTA.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/strategy/rigid/MTA.java
+END
+LBal_W.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/strategy/rigid/LBal_W.java
+END
+MWCTS.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/strategy/rigid/MWCTS.java
+END
+RRobin.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/strategy/rigid/RRobin.java
+END
+LBal_S.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/strategy/rigid/LBal_S.java
+END
+MaxAR.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/strategy/rigid/MaxAR.java
+END
+Admissible.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/strategy/rigid/Admissible.java
+END
+MLp.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/strategy/rigid/MLp.java
+END

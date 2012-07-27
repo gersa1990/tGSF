@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/teikoku/grid/delegation
+END
+ResourceDelegationSession.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/teikoku/grid/delegation/ResourceDelegationSession.java
+END
+ActivityDelegationSession.java
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/teikoku/grid/delegation/ActivityDelegationSession.java
+END
+DelegationSession.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/teikoku/grid/delegation/DelegationSession.java
+END
+DelegationFabric.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/teikoku/grid/delegation/DelegationFabric.java
+END
+ActivityDelegationTarget.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/teikoku/grid/delegation/ActivityDelegationTarget.java
+END
+ResourceDelegationTarget.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/teikoku/grid/delegation/ResourceDelegationTarget.java
+END
+SessionCreator.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/teikoku/grid/delegation/SessionCreator.java
+END
+ActivityDelegationSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/teikoku/grid/delegation/ActivityDelegationSource.java
+END
+ResourceDelegationSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/teikoku/grid/delegation/ResourceDelegationSource.java
+END
