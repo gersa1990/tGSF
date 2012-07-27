@@ -39,6 +39,13 @@ package de.irf.it.rmg.core.teikoku.kernel.events;
  */
 public enum EventType {
 
+	POWERON(),
+	
+	POWEROFF(),
+	
+	JOB_CANCELED(),
+
+	JOB_REPLICATED(),
 	/**
 	 * TODO: not yet commented
 	 * 

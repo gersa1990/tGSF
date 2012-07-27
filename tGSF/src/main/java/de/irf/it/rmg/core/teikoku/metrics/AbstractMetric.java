@@ -68,12 +68,16 @@ import de.irf.it.rmg.core.teikoku.Constants;
 import de.irf.it.rmg.core.teikoku.RuntimeEnvironment;
 import de.irf.it.rmg.core.teikoku.exceptions.InitializationException;
 import de.irf.it.rmg.core.teikoku.exceptions.MetricsException;
+import de.irf.it.rmg.core.teikoku.job.Job;
 import de.irf.it.rmg.core.teikoku.site.Site;
 import de.irf.it.rmg.core.util.ConfigurationHelper;
 import de.irf.it.rmg.core.util.Initializable;
 import de.irf.it.rmg.core.util.persistence.NullPersistentStore;
 import de.irf.it.rmg.core.util.persistence.PersistentStore;
 import de.irf.it.rmg.core.util.reflection.ClassLoaderHelper;
+import de.irf.it.rmg.core.util.time.Distance;
+import de.irf.it.rmg.core.util.time.Instant;
+import de.irf.it.rmg.core.util.time.TimeHelper;
 import de.irf.it.rmg.sim.kuiga.annotations.EventSink;
 import de.irf.it.rmg.sim.kuiga.annotations.MomentOfNotification;
 
@@ -554,6 +558,14 @@ abstract public class AbstractMetric
 
 	public void setSite(Site site) {
 		this.site = site;
+	}
+	
+	protected double calculateResponseTime(Job j) {
+		Instant releaseTime = j.getReleaseTime();
+		Instant endTime = j.getDuration().getCessation();
+		
+		Distance d = TimeHelper.distance(releaseTime, endTime);
+		return TimeHelper.toSeconds(d);
 	}
 }
 

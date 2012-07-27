@@ -63,11 +63,14 @@ import mx.cicese.dcc.teikoku.information.broker.GridInformationBroker;
 import mx.cicese.dcc.teikoku.information.broker.SiteInformation;
 import mx.cicese.dcc.teikoku.broker.ActivityBrokerRole;
 import mx.cicese.dcc.teikoku.broker.GridActivityBroker;
+import mx.cicese.mcc.teikoku.energy.SiteEnergyManager;
 import mx.cicese.mcc.teikoku.scheduler.SLA.SLA;
 import mx.cicese.mcc.teikoku.scheduler.SLA.generator.distributions.AbstractDistribution;
 import mx.cicese.mcc.teikoku.scheduler.SLA.generator.distributions.Distribution;
 import mx.cicese.mcc.teikoku.scheduler.util.ReleasedSiteQueue;
+import mx.cicese.mcc.teikoku.scheduler.util.ReplicationControl;
 import mx.uabc.lcc.teikoku.error.ErrorManager;
+import mx.cicese.mcc.teikoku.energy.SiteEnergyManager;
 
 import mx.cicese.mcc.teikoku.scheduler.util.ReleasedSiteQueue;
 
@@ -120,9 +123,13 @@ public class ComputeSite
     /**
      * TODO: not yet commented
      */
+    
+    private ReplicationControl replicationControl;
     private ActivityBroker activityBroker;
     private GridActivityBroker gridActivityBroker;
 
+    
+    private long longestJob;
     /**
      * TODO: not yet commented
      */
@@ -162,18 +169,42 @@ public class ComputeSite
 
     private MetaBroker metaBroker = null;
     
+    
+    private SiteEnergyManager energyManager;
     /**
 	 * Holds the information brokers
 	 */
 	private SiteInformationBroker siteInformationBroker;
 	private GridInformationBroker gridInformationBroker;
+	
+	private long work;
 
 	private boolean isClone;
+	
+	
+
+	//2522574337
+	/**
+	 * @return the work performed by this site (job length * job size for all jobs)
+	 */
+	public long getWork(){
+		return work;
+	}
 	
 	/**
 	 * The error manager
 	 */
+
 	ErrorManager errorManager;
+	
+	public long getLongestJob(){
+		return longestJob;
+	}
+
+	public void setLongestJob(long v){
+		this.longestJob = v;
+	}
+		
 	
 	/**
 	 * Copy constructor
@@ -262,6 +293,8 @@ public class ComputeSite
     /**
      * Create a new instance of the class for a dynamic site usig the parameters
      */
+    
+    
     public ComputeSite(String name, int counter) 
     		throws InstantiationException 
     {
@@ -379,11 +412,24 @@ public class ComputeSite
       *
       * @see de.irf.it.rmg.core.teikoku.site.Site#getUUID()
       */
+    
+    public SiteEnergyManager getSiteEnergyManager(){
+		if(this.energyManager == null) {
+			this.energyManager = new SiteEnergyManager(this);
+		}
+		return this.energyManager;
+	}
+	
 
     public UUID getUUID() {
         return this.uuid;
     }
-
+    
+    
+    public void setWork(long v){
+		this.work += v;
+	}
+	
     // -------------------------------------------------------------------------
     // Implementation/Overrides for
     // de.irf.it.rmg.core.teikoku.kernel.events.TeikokuEventConsumer
@@ -815,13 +861,24 @@ public class ComputeSite
 		return this.slaGenerator;
 	}
 
-	public void setLongestJob(long v){
-		this.longestJob = v;
+
+
+
+	
+	public ReplicationControl getReplicationControl(){
+		if(this.replicationControl == null) {
+			this.replicationControl = new ReplicationControl(this);
+		}
+		return replicationControl;
 	}
 	
-	public long getLongestJob(){
-		return longestJob;
-	}
+
+	 /**
+     * Loads the strategy this scheduler uses based on the configuration.
+     *
+     * @throws InstantiationException
+     */
+ 
 
 
 }

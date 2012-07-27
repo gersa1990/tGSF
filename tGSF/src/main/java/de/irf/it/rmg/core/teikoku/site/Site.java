@@ -249,5 +249,6 @@ public interface Site{
 	public void setLongestJob(long v);
 	public long getWork();
 	public void setWork(long v);
+
 	
 }
