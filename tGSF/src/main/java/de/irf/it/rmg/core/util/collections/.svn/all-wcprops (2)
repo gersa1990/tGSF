@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/util/collections
+END
+AbstractInvertibleComparator.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/util/collections/AbstractInvertibleComparator.java
+END
+TraversableElement.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/util/collections/TraversableElement.java
+END
+InvertibleComparator.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/util/collections/InvertibleComparator.java
+END
+PreviewableListIterator.java
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/util/collections/PreviewableListIterator.java
+END
+TraversableElementListDecorator.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/util/collections/TraversableElementListDecorator.java
+END
+SortedQueueBinarySearchImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/util/collections/SortedQueueBinarySearchImpl.java
+END
+TraversableElementHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/util/collections/TraversableElementHelper.java
+END
+RemoveAllRetainAllSetDecorator.java
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/util/collections/RemoveAllRetainAllSetDecorator.java
+END
+RidgidRuleComparator.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/util/collections/RidgidRuleComparator.java
+END
+Ordering.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/util/collections/Ordering.java
+END
+SortedQueue.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/util/collections/SortedQueue.java
+END
+PreviewableElementListDecorator.java
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/util/collections/PreviewableElementListDecorator.java
+END
+Sets.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/util/collections/Sets.java
+END

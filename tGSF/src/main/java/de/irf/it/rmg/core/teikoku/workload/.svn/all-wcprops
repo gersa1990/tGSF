@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/teikoku/workload
+END
+WorkloadFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/teikoku/workload/WorkloadFilter.java
+END
+WorkloadSink.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/teikoku/workload/WorkloadSink.java
+END
+WorkloadSource.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/core/teikoku/workload/WorkloadSource.java
+END

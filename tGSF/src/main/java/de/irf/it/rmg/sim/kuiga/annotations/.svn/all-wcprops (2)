@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/sim/kuiga/annotations
+END
+AcceptedEventType.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/sim/kuiga/annotations/AcceptedEventType.java
+END
+AnnotationHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/sim/kuiga/annotations/AnnotationHelper.java
+END
+EventSink.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/sim/kuiga/annotations/EventSink.java
+END
+InvalidAnnotationException.java
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/sim/kuiga/annotations/InvalidAnnotationException.java
+END
+NotificationTime.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/sim/kuiga/annotations/NotificationTime.java
+END
+package-info.java
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/sim/kuiga/annotations/package-info.java
+END
+MomentOfNotification.java
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/de/irf/it/rmg/sim/kuiga/annotations/MomentOfNotification.java
+END

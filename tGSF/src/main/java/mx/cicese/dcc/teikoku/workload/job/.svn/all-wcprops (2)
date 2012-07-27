@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/workload/job
+END
+CompositeJob.class
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/workload/job/CompositeJob.class
+END
+JobType.class
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/workload/job/JobType.class
+END
+MemberState.class
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/workload/job/MemberState.class
+END
+StateCollection.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/workload/job/StateCollection.java
+END
+CompositeJobState.class
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/workload/job/CompositeJobState.class
+END
+CompositeJobUtils.class
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/workload/job/CompositeJobUtils.class
+END
+Precedence.java
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/workload/job/Precedence.java
+END
+Edge.class
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/workload/job/Edge.class
+END
+Vertex.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/workload/job/Vertex.java
+END
+Vertex.class
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/workload/job/Vertex.class
+END
+Edge.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/workload/job/Edge.java
+END
+Precedence.class
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/workload/job/Precedence.class
+END
+CompositeJobState.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/workload/job/CompositeJobState.java
+END
+CompositeJobUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/workload/job/CompositeJobUtils.java
+END
+CompositeJob$WorkflowDescription.class
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/workload/job/CompositeJob$WorkflowDescription.class
+END
+JobType.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/workload/job/JobType.java
+END
+MemberState.java
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/workload/job/MemberState.java
+END
+StateCollection.class
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/workload/job/StateCollection.class
+END
+CompositeJob.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/workload/job/CompositeJob.java
+END

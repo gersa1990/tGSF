@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/priority
+END
+ConstantRank.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/priority/ConstantRank.java
+END
+UpperRank.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/priority/UpperRank.java
+END
+DownwardRank.class
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/priority/DownwardRank.class
+END
+AsLateAsPossible.class
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/priority/AsLateAsPossible.class
+END
+AsLateAsPossible.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/priority/AsLateAsPossible.java
+END
+DownwardRank.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/priority/DownwardRank.java
+END
+UpperRank.class
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/priority/UpperRank.class
+END
+Priority.java
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/priority/Priority.java
+END
+Priority.class
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/scheduler/priority/Priority.class
+END

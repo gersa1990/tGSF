@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/utilities
+END
+JobIdComparator.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/utilities/JobIdComparator.java
+END
+TopologicalSort.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/utilities/TopologicalSort.java
+END
+DFSDistanceLabeler.class
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/utilities/DFSDistanceLabeler.class
+END
+DFSDistanceLabeler.java
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/utilities/DFSDistanceLabeler.java
+END
+TopologicalSort.class
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/utilities/TopologicalSort.class
+END
+CriticalPath.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/utilities/CriticalPath.java
+END
+Color.class
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/utilities/Color.class
+END
+Color.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/utilities/Color.java
+END
+CriticalPath.class
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/testingalb/!svn/ver/13/trunk/tGSF/src/main/java/mx/cicese/dcc/teikoku/utilities/CriticalPath.class
+END

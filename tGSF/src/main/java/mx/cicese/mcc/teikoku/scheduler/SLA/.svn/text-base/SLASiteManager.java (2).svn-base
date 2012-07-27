@@ -1,0 +1,11 @@
+package mx.cicese.mcc.teikoku.scheduler.SLA;
+
+public class SLASiteManager {
+
+	public void deliverJobSLAReviewEvent(SLAReviewEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("¿Entro?");
+		
+	}
+
+}
