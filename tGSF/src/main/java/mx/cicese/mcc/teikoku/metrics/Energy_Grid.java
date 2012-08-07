@@ -1,12 +1,19 @@
 package mx.cicese.mcc.teikoku.metrics;
 
+import de.irf.it.rmg.core.teikoku.exceptions.SubmissionException;
 import de.irf.it.rmg.core.teikoku.job.Job;
+import de.irf.it.rmg.core.teikoku.kernel.events.CorePowerOffEvent;
 import de.irf.it.rmg.core.teikoku.kernel.events.JobCompletedEvent;
+import de.irf.it.rmg.core.teikoku.kernel.events.JobStartedEvent;
 import de.irf.it.rmg.core.teikoku.metrics.AbstractMetric;
 import de.irf.it.rmg.core.teikoku.workload.job.SWFJob;
 import de.irf.it.rmg.core.util.DateHelper;
 import de.irf.it.rmg.core.util.time.TimeHelper;
+import de.irf.it.rmg.sim.kuiga.Clock;
 import de.irf.it.rmg.sim.kuiga.annotations.AcceptedEventType;
+import de.irf.it.rmg.sim.kuiga.annotations.MomentOfNotification;
+import de.irf.it.rmg.sim.kuiga.annotations.NotificationTime;
+import mx.cicese.dcc.teikoku.information.broker.ComputeSiteInformation;
 import mx.cicese.mcc.teikoku.energy.GridEnergyManager;
 import mx.cicese.mcc.teikoku.kernel.events.SitePowerOffEvent;
 import de.irf.it.rmg.core.util.math.AverageHelper;
@@ -124,6 +131,7 @@ public class Energy_Grid extends AbstractMetric {
 		this.swct = 0;
 		this.ah = new AverageHelper();
 		timeSum = 0;
+		//SitePowerOffEvent event = new SitePowerOffEvent(this.getSite().getSiteEnergyManager().);
 	}
 	
 	/*
@@ -172,6 +180,11 @@ public class Energy_Grid extends AbstractMetric {
 		this.handleSitePowerOffEvent(DateHelper.convertToSeconds(TimeHelper.toLongValue(e.getTimestamp())));
 	}// End deliverCompletedEvent
 	
+	//alpha
+	
+	
+	
+	
 	private void assignNewValues()
 	{
 		Object[] values = this.getLatestValuesPrototype();
@@ -200,7 +213,10 @@ public class Energy_Grid extends AbstractMetric {
 		this.n++;
 		swt += ((SWFJob) job).getWaitTime();
 		e = this.gridEnergyManager.getEnergyConsumption();
-		
+		//alpha
+		System.out.println("Started :" + job.getReleaseTime().timestamp());
+		System.out.println("completed: "+ timestamp);
+		//System.out.println("IDLETIME: "+ this.getSite().getSiteEnergyManager().getIdleTime(job.getReleaseTime().timestamp(), timestamp));
 		//2522574337
 		long work = this.gridEnergyManager.getWork();
 		long longest = this.gridEnergyManager.getLongest();
@@ -210,7 +226,7 @@ public class Energy_Grid extends AbstractMetric {
 		//Galleta
 		turns = this.gridEnergyManager.getTurnOffTimes();
 		times = this.gridEnergyManager.getTimes();
-		
+		//double ext = this.gridEnergyManager.getSite().getSiteEnergyManager().getCoresIdleTime();
 		timeSum = times[1] + times[2] + times[3];
 		for (int i = 0; i < times.length; i++)
 			if (times[i] != 0)
@@ -245,7 +261,7 @@ public class Energy_Grid extends AbstractMetric {
 		// TODO Auto-generated method stub
 		e = this.gridEnergyManager.getEnergyConsumption();
 		e /= timestamp;
-		
+		System.out.println("*******************************");
 		//Galleta
 		turns = this.gridEnergyManager.getTurnOffTimes();
 		times = this.gridEnergyManager.getTimes();
@@ -255,6 +271,8 @@ public class Energy_Grid extends AbstractMetric {
 			if (times[i] != 0)
 				times[i] *= (100/timeSum);		
 	}
+	
+	
 
 	@Override
 	protected double calculateResponseTime(Job j) {

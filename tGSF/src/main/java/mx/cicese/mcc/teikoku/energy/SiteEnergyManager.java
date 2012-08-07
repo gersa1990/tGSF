@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import mx.cicese.mcc.teikoku.kernel.events.CorePowerOffEvent;
 import mx.cicese.mcc.teikoku.kernel.events.CorePowerOnEvent;
 import mx.cicese.mcc.teikoku.kernel.events.SitePowerOffEvent;
@@ -15,10 +18,15 @@ import de.irf.it.rmg.core.teikoku.site.ResourceBundleSortedSetImpl;
 import de.irf.it.rmg.core.teikoku.site.Site;
 import de.irf.it.rmg.core.util.time.Instant;
 import de.irf.it.rmg.core.util.time.TimeFactory;
+import de.irf.it.rmg.sim.kuiga.Clock;
 import de.irf.it.rmg.sim.kuiga.Event;
 import de.irf.it.rmg.sim.kuiga.Kernel;
 
 public class SiteEnergyManager extends AbstractEnergyManager{
+	
+	
+	final private static Log log = LogFactory.getLog("debugger");
+
 	
 	private List <CoreEnergyManager> coreEM;
 	private List <BoardEnergyManager> boardEM;
@@ -188,6 +196,7 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 	 * @return the total coreWorkingTime 
 	 */
 	public double getCoresWorkingTime(){
+		//System.out.println("Work: "+ coresWorkingTime);
 		return coresWorkingTime;
 	}
 
@@ -195,6 +204,7 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 	 * @return the total coreIdleTime 
 	 */
 	public double getCoresIdleTime(){
+		System.out.println("Id: "+ coresIdleTime);
 		return coresIdleTime;
 	}
 
@@ -209,13 +219,17 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 	 * @param time the offtime to add
 	 */
 	public void setCoresOffTime(double time){
-		this.coresOffTime += time;
+		//this.coresOffTime += time;
+		//Original Version
+		this.coresOffTime = time;
 	}
 	/**
 	 * @param time the working time to add
 	 */
 	public void setCoresWorkingTime(double time){
+		System.out.println("Antes:::"+this.coresWorkingTime);
 		this.coresWorkingTime += time;
+		System.out.println("W= "+time+"\n"+"WORK::::" + this.coresWorkingTime);
 	}
 
 	/**
@@ -223,6 +237,7 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 	 */
 	public void setCoresIdleTime(double time){
 		this.coresIdleTime += time;
+		System.out.println("IDLEFINAL:"+ time);
 	}
 
 	/**
@@ -289,6 +304,7 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 		/*
 		 * Set Idle
 		 */
+		
 		Kernel.getInstance().dispatch(new SitePowerOffEvent(eventTime,this.getSite()));
 	}
 	
@@ -297,6 +313,7 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 		long time=e.getTimestamp().timestamp()+this.siteTurnOnDelay;
 		Instant eventTime = tf.newMoment(time);
 		Kernel.getInstance().dispatch(new SitePowerOnEvent(eventTime,this.getSite()));
+		
 	}
 	
 	public void requestCoreTurnOff(Event e, Job job){
@@ -306,6 +323,7 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 		/*
 		 * Set Idle
 		 */
+
 		//Lista de recursos desocupados por el trabajo
 		ResourceBundle releasedResources = job.getResources();
 		int quantity = releasedResources.size();
@@ -321,6 +339,7 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 		long time=e.getTimestamp().timestamp()+this.coreTurnOnDelay;
 		Instant eventTime = tf.newMoment(time);
 		Kernel.getInstance().dispatch(new CorePowerOnEvent(eventTime,this.getSite()));
+		
 	}
 	
 	/**
@@ -330,7 +349,9 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 	public void deliverSitePowerOnEvent(SitePowerOnEvent e) {
 		// TODO Auto-generated method stub
 		Long now = new Long (e.getTimestamp().timestamp()); 	
-				
+		//alpha
+		System.out.println("ENCENDIENDO SITIO");
+		log.trace( "power on event " + Clock.instance().now().toString());
 		if(this.isOff()) {
 			this.setOffTime(this.getOffTime() + (now-getLastEventTime()));
 			this.setnTurnOn(this.getnTurnOn() + 1);
@@ -347,6 +368,10 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 	 */
 	public void deliverSitePowerOffEvent(SitePowerOffEvent e) {
 		// TODO Auto-generated method stub
+		//Alpha
+		System.out.println("SitePowerOFF");
+		log.trace("Site " + e.getSite().getName() + " power off event " + Clock.instance().now().toString());
+
 		Long now = new Long (e.getTimestamp().timestamp());
 		if(this.getSite().getScheduler().getSchedule().getScheduledJobs().isEmpty() && this.getSite().getReleasedSiteQueue().getQueue().isEmpty())	{
 			if(this.getSite().getSiteEnergyManager().isOn()) {
@@ -354,7 +379,9 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 				this.setOnTime(this.getOnTime()+ (now-getLastEventTime()));
 				this.setnTurnOff(this.getnTurnOff() + 1);
 				this.turnOff();
-			//	this.idleTime += (now-lastEventTime);
+				// alpha
+				//this.coresIdleTime += (now-getLastEventTime());
+				//System.out.println("Now: "+ now +" getLastEventTime(): "+ getLastEventTime());
 			}
 			else {
 				this.setOffTime (this.getOffTime()+(now-getLastEventTime()));
@@ -404,12 +431,11 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 		Long now = new Long (e.getTimestamp().timestamp());
 		ResourceBundle resources = job.getResources();
 		int quantity = resources.size();
-		
+		System.out.println("Core power off");
 		for (int i = 0 ; i < quantity;i++) {
 			if (!onCore.isEmpty()) {
 				int coreNumber = resources.get(i).getOrdinal();
 				coreNumber--;
-				
 				this.coreEM.get(coreNumber).powerOff(now);
 				
 				this.setCoresOnTime(this.coreEM.get(coreNumber).getOnTime());
@@ -511,7 +537,7 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 	public void deliverCorePowerOnEvent (CorePowerOnEvent e) {
 		Long now = new Long (e.getTimestamp().timestamp());
 		//ResourceBundle op = this.coreOp();			//Lista de recursos que estan prendidos y ocupados
-		
+		System.out.println("Encendiendo core");
 		if (!this.offCore.isEmpty()) {
 			coreEM.get(offCore.get(0).getOrdinal()-1).powerOn(now);
 			
@@ -622,5 +648,15 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 		}
 		return energyConsumption;
 	}
+	
+	
+	//alpha
+	
+	public double getIdleTime(double timeStarted,double timeCompleted)
+	{
+		
+		return timeCompleted - timeStarted;
+	}
+	
 	
 }	

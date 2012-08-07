@@ -45,6 +45,7 @@ import de.irf.it.rmg.core.teikoku.exceptions.SubmissionException;
 import de.irf.it.rmg.core.teikoku.job.Job;
 import de.irf.it.rmg.core.teikoku.job.State;
 import de.irf.it.rmg.core.teikoku.kernel.events.JobAbortedEvent;
+import de.irf.it.rmg.core.teikoku.kernel.events.JobCanceledEvent;
 import de.irf.it.rmg.core.teikoku.kernel.events.JobCompletedEvent;
 import de.irf.it.rmg.core.teikoku.kernel.events.JobCompletedOnForeignSiteEvent;
 import de.irf.it.rmg.core.teikoku.kernel.events.JobQueuedEvent;
@@ -56,6 +57,7 @@ import de.irf.it.rmg.core.teikoku.kernel.events.AllocQueuedEvent;
 import de.irf.it.rmg.core.teikoku.scheduler.AbstractScheduler;
 import de.irf.it.rmg.core.teikoku.scheduler.strategy.LISTStrategy;
 import de.irf.it.rmg.core.teikoku.site.schedule.Schedule;
+import de.irf.it.rmg.core.teikoku.workload.job.SWFJob;
 import de.irf.it.rmg.core.util.time.Instant;
 import de.irf.it.rmg.core.util.time.Period;
 import de.irf.it.rmg.sim.kuiga.Clock;
@@ -80,7 +82,11 @@ import mx.cicese.mcc.teikoku.scheduler.SLA.events.StartSchedulingEvent;
 import mx.uabc.lcc.teikoku.error.ResourceAvailabilityEvent;
 import mx.uabc.lcc.teikoku.error.ResourceUnavailabilityEvent;
 import mx.uabc.lcc.teikoku.error.SiteAvailabilityEvent;
-import mx.uabc.lcc.teikoku.error.SiteUnavailabilityEvent;;
+import mx.uabc.lcc.teikoku.error.SiteUnavailabilityEvent;
+import mx.cicese.mcc.teikoku.kernel.events.CorePowerOffEvent;
+import mx.cicese.mcc.teikoku.kernel.events.CorePowerOnEvent;
+import mx.cicese.mcc.teikoku.kernel.events.SitePowerOffEvent;
+import mx.cicese.mcc.teikoku.kernel.events.SitePowerOnEvent;
 
 
 /**
@@ -143,12 +149,76 @@ public class ComputeSiteEventHandler implements TimeChangeListener,TypeChangeLis
 		if (event.getTags().containsKey(this.site.getUUID().toString())){
 			if (job.getProvenance().getLastCondition()==this.site){
 				
+				// EnMod
+				//Galleta
+				int jobSize = ((SWFJob) job).getRequestedNumberOfProcessors();
+				int idleCores = this.site.getSiteEnergyManager().numberOfIdleOnCore();
+				int sub = jobSize - idleCores;
+				
+				if(this.site.getSiteEnergyManager().isOn())	{					
+					if(idleCores >= jobSize)	{
+						((AbstractScheduler) this.site.getScheduler()).reactivate();
+						
+						/* INSTRUMENTATION: Set accounting information. Begin */
+
+						//Galleta
+						this.site.getSiteEnergyManager().addtoOperating(job.getResources());
+						
+						ComputeSiteInformation info = null;
+						info = (ComputeSiteInformation) this.site.getSiteInformation();
+						info.preLRMSWaitingJobs--;
+						if(job.getReleasedSite().getUUID().equals(this.site.getUUID())) {
+							info.localPreLRMSWaitingJobs--;
+							info.localWaitingJobs++;
+						}
+						info.waitingJobs++;
+						/* INSTRUMENTATION: End */
+					}
+					else {
+						for (int i = 0; i < sub; i++) {
+							this.site.getSiteEnergyManager().requestCoreTurnOn(event);
+						}
+
+						//Galleta
+						((AbstractScheduler) this.site.getScheduler()).reactivate();
+						
+						/* INSTRUMENTATION: Set accounting information. Begin */
+
+						//Galleta
+						this.site.getSiteEnergyManager().addtoOperating(job.getResources());
+						
+						ComputeSiteInformation info = null;
+						info = (ComputeSiteInformation) this.site.getSiteInformation();
+						info.preLRMSWaitingJobs--;
+						if(job.getReleasedSite().getUUID().equals(this.site.getUUID())) {
+							
+							info.localPreLRMSWaitingJobs--;
+							info.localWaitingJobs++;
+						}
+						info.waitingJobs++;
+						/* INSTRUMENTATION: End */						
+					}
+				}
+			
+			else {
+				
+				this.site.getSiteEnergyManager().requestSiteTurnOn(event);
+
+				//Galleta: Uno menos porque al prender el sitio se prende un core por default
+				for (int i = 1; i < sub; i++)
+				{
+					this.site.getSiteEnergyManager().requestCoreTurnOn(event);
+				}
 				
 				((AbstractScheduler) this.site.getScheduler()).reactivate();
 				//job is queued locally
 				//((AbstractScheduler) this.site.getScheduler()).activate();
 				
 				/* INSTRUMENTATION: Set accounting information. Begin */
+				
+				//Galleta
+				this.site.getSiteEnergyManager().addtoOperating(job.getResources());
+				
 				ComputeSiteInformation info = null;
 				info = (ComputeSiteInformation) this.site.getSiteInformation();
 				info.preLRMSWaitingJobs--;
@@ -161,20 +231,40 @@ public class ComputeSiteEventHandler implements TimeChangeListener,TypeChangeLis
 			}
 		}
 	}
-	
+}
 	
 	@AcceptedEventType(value=JobStartedEvent.class)
 	@MomentOfNotification(value=NotificationTime.HANDLE)
 	public void deliverStartedEvent(JobStartedEvent event){
 		//First check tag-existence
+		//alpha
+		
+		//alpha
+		Job job = event.getStartedJob();
+		int jobSize = ((SWFJob) job).getRequestedNumberOfProcessors();
+		int idleCores = this.site.getSiteEnergyManager().numberOfIdleOnCore();
+		int sub = jobSize - idleCores;
+		
+		if(this.site.getSiteEnergyManager().isOn())	{					
+			
+		for (int i = 0; i < sub; i++) {
+			this.site.getSiteEnergyManager().requestCoreTurnOn(event);
+		
+			}}
+		//<alpha
+		
+		
 		if (event.getTags().containsKey(this.site.getUUID().toString())){
+			
+			
+			
 			try {
 				JobCompletedEvent jobCompletedEvent = 
 						this.site.getExecutor().submit(event.getStartedJob());
 				jobComplEventMap.put(event.getStartedJob(), jobCompletedEvent);
 				
 				/* INSTRUMENTATION: Set accounting information. Begin */
-				Job job = event.getStartedJob();
+				//Job job = event.getStartedJob();
 				
 				testTime = Clock.instance().now().timestamp();
 				if(previousStartedJob != null && job.getRuntimeInformation().getInterruptionFlag())
@@ -300,6 +390,11 @@ public class ComputeSiteEventHandler implements TimeChangeListener,TypeChangeLis
 					
 					//REACTIVATE starts the Scheduler to clean the schedule and events in order to start again
 					((AbstractScheduler) this.site.getScheduler()).reactivate();
+					
+					event.getCompletedJob().getReleasedSite().getReplicationControl().cancelReplicas(event.getCompletedJob());
+					event.getCompletedJob().getReleasedSite().getReleasedSiteQueue().notify(event);
+					
+					this.site.getSiteEnergyManager().requestCoreTurnOff(event, completedJob);
 				
 				}
 				
@@ -480,7 +575,7 @@ public class ComputeSiteEventHandler implements TimeChangeListener,TypeChangeLis
 		}
 	}
 
-	
+	//alpha
 	 private void messageInConsole(Job completedJob){
 		 //System.out.println("Job " + completedJob.getName() + " completed at time " + Clock.instance().now().timestamp());
 		 System.out.println("Job " + completedJob.getName() + " completed, # "+  Clock.instance().now().timestamp() + " " + completedJob.getProvenance().getLastCondition().getName());
@@ -496,6 +591,14 @@ public class ComputeSiteEventHandler implements TimeChangeListener,TypeChangeLis
 public void deliverSLAreviewEvent(SLAReviewEvent event)
 {
 	if (event.getTags().containsKey(this.site.getUUID().toString())) {
+	
+		Job j = event.getSuspendedJob();
+		
+		System.out.println("///////========////");
+		//alpha
+		this.site.getSiteEnergyManager().requestCoreTurnOff(event, j);
+		//alpha>
+		
 		Job suspendedJob = event.getSuspendedJob();
 		//if (suspendedJob.getProvenance().getLastCondition()==this.site){
 			// if the last condition of the Job was STARTED the job had been executed before a new job
@@ -601,4 +704,97 @@ public void deliverSLAreviewEvent(SLAReviewEvent event)
 
 
 
+
+
+//@author Aritz
+	@AcceptedEventType(value=JobCanceledEvent.class)
+	@MomentOfNotification(value=NotificationTime.HANDLE)
+	public void deliverCanceledEvent(JobCanceledEvent event){
+		//First check tag-existence
+		if (event.getTags().containsKey(this.site.getUUID().toString())){
+			Job canceledJob = event.getCanceledJob();
+			if (canceledJob.getProvenance().getLastCondition()==this.site){
+				canceledJob.getLifecycle().addEpisode(State.FAILED);
+				try {
+					this.site.getScheduler().getSchedule().removeJob(canceledJob);
+				} catch (IllegalOccupationException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				/* INSTRUMENTATION: Set accounting information. Begin */
+				Job job = event.getCanceledJob();
+				ComputeSiteInformation info = null;
+				info = (ComputeSiteInformation) this.site.getSiteInformation();
+				info.runningJobs--;
+				if(job.getReleasedSite().getUUID().equals(this.site.getUUID())) {
+					info.localRunningJobs--;
+				}
+				Kernel.getInstance().unregisterJobEvent((SWFJob) canceledJob);
+				this.completedEventPresent=true;
+
+				//Galleta
+				this.site.getSiteEnergyManager().requestCoreTurnOff(event, canceledJob);
+				}
+		}
+	}
+	
+	/**
+	 * Overwritten realization of delivering the releasedEvent
+	 * @see 
+	 */
+	 /*@AcceptedEventType(value=JobReleasedEvent.class)
+	@MomentOfNotification(value=NotificationTime.HANDLE)
+	public void deliverReleasedEvent(JobReleasedEvent event) {
+		//Check the Tag
+		if (event.getTags().containsKey(this.site.getUUID().toString())){
+			this.site.getLocalSubmissionComponent().deliverReleaseEvent(event);				
+		}
+	}*/
+	
+//Energy Management
+	
+	// @author Aritz
+	@AcceptedEventType(value=SitePowerOnEvent.class)
+	@MomentOfNotification(value=NotificationTime.HANDLE)
+	public void deliverSitePowerOnEvent(SitePowerOnEvent e)
+	{
+		if (e.getTags().containsKey(this.site.getUUID().toString())){
+			site.getSiteEnergyManager().deliverSitePowerOnEvent(e);
+			this.site.getSiteEnergyManager().requestCoreTurnOn(e);
+		}
+	}
+	
+	// @author Aritz
+	@AcceptedEventType(value=SitePowerOffEvent.class)
+	@MomentOfNotification(value=NotificationTime.HANDLE)
+	public void deliverSitePowerOffEvent(SitePowerOffEvent e)
+	{
+		if (e.getTags().containsKey(this.site.getUUID().toString())){
+			site.getSiteEnergyManager().deliverSitePowerOffEvent(e);
+		}
+	}	
+
+	// @author Aritz
+	@AcceptedEventType(value=CorePowerOffEvent.class)
+	@MomentOfNotification(value=NotificationTime.HANDLE)
+	public void deliverCorePowerOffEvent(CorePowerOffEvent e) {
+		if (e.getTags().containsKey(this.site.getUUID().toString())) {
+			Job j = e.getJob();
+			site.getSiteEnergyManager().deliverCorePowerOffEvent(e, j);
+		}
+	}	
+	
+	// @author Aritz
+	@AcceptedEventType(value=CorePowerOnEvent.class)
+	@MomentOfNotification(value=NotificationTime.HANDLE)
+	public void deliverCorePowerOnEvent(CorePowerOnEvent e)
+	{
+		if (e.getTags().containsKey(this.site.getUUID().toString())){
+			site.getSiteEnergyManager().deliverCorePowerOnEvent(e);
+			site.getReleasedSiteQueue().notify(e);
+		}
+	}
+	
+	
+	
 } //End ComputeSiteEventHandler 

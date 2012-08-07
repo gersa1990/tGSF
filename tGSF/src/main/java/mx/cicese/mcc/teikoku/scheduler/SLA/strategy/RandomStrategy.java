@@ -2,10 +2,8 @@ package mx.cicese.mcc.teikoku.scheduler.SLA.strategy;
 
 import java.util.List;
 import java.util.UUID;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
 import de.irf.it.rmg.core.teikoku.job.Job;
 import de.irf.it.rmg.core.teikoku.site.Site;
 import de.irf.it.rmg.core.teikoku.workload.job.SWFJob;

@@ -27,6 +27,10 @@
 package de.irf.it.rmg.core.teikoku.site;
 
 import java.util.List;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import de.irf.it.rmg.core.teikoku.Bootstrap;
 import de.irf.it.rmg.core.teikoku.common.Reservation;
 import de.irf.it.rmg.core.teikoku.exceptions.AbortionNotHandledException;
@@ -85,6 +89,7 @@ import mx.cicese.mcc.teikoku.kernel.events.SitePowerOnEvent;
 public class ComputeSiteEventHandler implements TimeChangeListener,TypeChangeListener {
 
 	private Site site;
+	
 	
 	private boolean completedEventPresent=false;
 	
@@ -558,6 +563,7 @@ public class ComputeSiteEventHandler implements TimeChangeListener,TypeChangeLis
 	@MomentOfNotification(value=NotificationTime.HANDLE)
 	public void deliverSitePowerOffEvent(SitePowerOffEvent e)
 	{
+		log.trace("Site " + e.getSite().getName() + " power off event " + Clock.instance().now().toString());
 		if (e.getTags().containsKey(this.site.getUUID().toString())){
 			site.getSiteEnergyManager().deliverSitePowerOffEvent(e);
 		}

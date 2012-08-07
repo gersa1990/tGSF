@@ -590,3 +590,96 @@ public class ComputeSiteEventHandler implements TimeChangeListener,TypeChangeLis
 	}
 	 
 } //End ComputeSiteEventHandler 
+
+// @author Aritz
+	@AcceptedEventType(value=JobCanceledEvent.class)
+	@MomentOfNotification(value=NotificationTime.HANDLE)
+	public void deliverCanceledEvent(JobCanceledEvent event){
+		//First check tag-existence
+		if (event.getTags().containsKey(this.site.getUUID().toString())){
+			Job canceledJob = event.getCanceledJob();
+			if (canceledJob.getProvenance().getLastCondition()==this.site){
+				canceledJob.getLifecycle().addEpisode(State.FAILED);
+				try {
+					this.site.getScheduler().getSchedule().removeJob(canceledJob);
+				} catch (IllegalOccupationException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				/* INSTRUMENTATION: Set accounting information. Begin */
+				Job job = event.getCanceledJob();
+				ComputeSiteInformation info = null;
+				info = (ComputeSiteInformation) this.site.getSiteInformation();
+				info.runningJobs--;
+				if(job.getReleasedSite().getUUID().equals(this.site.getUUID())) {
+					info.localRunningJobs--;
+				}
+				Kernel.getInstance().unregisterJobEvent((SWFJob) canceledJob);
+				this.completedEventPresent=true;
+
+				//Galleta
+				this.site.getSiteEnergyManager().requestCoreTurnOff(event, canceledJob);
+				}
+		}
+	}
+	
+	/**
+	 * Overwritten realization of delivering the releasedEvent
+	 * @see 
+	 */
+	@AcceptedEventType(value=JobReplicaReleasedEvent.class)
+	@MomentOfNotification(value=NotificationTime.HANDLE)
+	public void deliverReleasedEvent(JobReplicaReleasedEvent event) {
+		//Check the Tag
+		if (event.getTags().containsKey(this.site.getUUID().toString())){
+			this.site.getLocalSubmissionComponent().deliverReleaseEvent(event);				
+		}
+	}
+// Energy Management
+	
+	// @author Aritz
+	@AcceptedEventType(value=SitePowerOnEvent.class)
+	@MomentOfNotification(value=NotificationTime.HANDLE)
+	public void deliverSitePowerOnEvent(SitePowerOnEvent e)
+	{
+		if (e.getTags().containsKey(this.site.getUUID().toString())){
+			site.getSiteEnergyManager().deliverSitePowerOnEvent(e);
+			this.site.getSiteEnergyManager().requestCoreTurnOn(e);
+		}
+	}
+	
+	// @author Aritz
+	@AcceptedEventType(value=SitePowerOffEvent.class)
+	@MomentOfNotification(value=NotificationTime.HANDLE)
+	public void deliverSitePowerOffEvent(SitePowerOffEvent e)
+	{
+		if (e.getTags().containsKey(this.site.getUUID().toString())){
+			site.getSiteEnergyManager().deliverSitePowerOffEvent(e);
+		}
+	}	
+
+	// @author Aritz
+	@AcceptedEventType(value=CorePowerOffEvent.class)
+	@MomentOfNotification(value=NotificationTime.HANDLE)
+	public void deliverCorePowerOffEvent(CorePowerOffEvent e) {
+		if (e.getTags().containsKey(this.site.getUUID().toString())) {
+			Job j = e.getJob();
+			site.getSiteEnergyManager().deliverCorePowerOffEvent(e, j);
+		}
+	}	
+	
+	// @author Aritz
+	@AcceptedEventType(value=CorePowerOnEvent.class)
+	@MomentOfNotification(value=NotificationTime.HANDLE)
+	public void deliverCorePowerOnEvent(CorePowerOnEvent e)
+	{
+		if (e.getTags().containsKey(this.site.getUUID().toString())){
+			site.getSiteEnergyManager().deliverCorePowerOnEvent(e);
+			site.getReleasedSiteQueue().notify(e);
+		}
+	}
+	
+	private void messageInConsole(Job completedJob) {
+		 //System.out.println("Job " + completedJob.getName() + " completed at time " + Clock.instance().now().timestamp());
+		 System.out.println("Job " + completedJob.getName() + " completed, # "+  Clock.instance().now().timestamp() + " " + completedJob.getProvenance().getLastCondition().getName());
+	}

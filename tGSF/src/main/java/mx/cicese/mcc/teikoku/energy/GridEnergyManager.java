@@ -88,10 +88,12 @@ public class GridEnergyManager extends AbstractEnergyManager{
 				times[1] = s.getSiteEnergyManager().getCoresOffTime();
 				times[2] = s.getSiteEnergyManager().getCoresIdleTime();
 				times[3] = s.getSiteEnergyManager().getCoresWorkingTime();
-				times[0] /= s.getSiteInformation().getProvidedResources().size();
+				System.out.println("tiempo iddle: " + times[2] );
+				System.out.println("OFFTIME:::"+ times[1]);
+				/*times[0] /= s.getSiteInformation().getProvidedResources().size();
 				times[1] /= s.getSiteInformation().getProvidedResources().size();
 				times[2] /= s.getSiteInformation().getProvidedResources().size();
-				times[3] /= s.getSiteInformation().getProvidedResources().size();
+				times[3] /= s.getSiteInformation().getProvidedResources().size();*/
 			}
 		}		
 		return times;	

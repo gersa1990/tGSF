@@ -692,14 +692,14 @@ public void RemoveLaxityInterruptionEvent (LaxityInterruptionEvent laxityInterru
 
 
 //@author Aritz
-	public void unregisterJobEvent(SWFJob job) {
+	public void unregisterJobEvent(SWFJob canceledJob) {
 		// TODO Auto-generated method stub
 		for(Event e:this.eventQueue)
 		{
 			if(e.getClass().equals(de.irf.it.rmg.core.teikoku.kernel.events.JobReleasedEvent.class))
 			{
 				de.irf.it.rmg.core.teikoku.kernel.events.JobReleasedEvent jre = (JobReleasedEvent) e;
-				if(jre.getReleasedJob().equals(job))
+				if(jre.getReleasedJob().equals(canceledJob))
 				{
 					this.eventQueue.remove(e);
 					break;
@@ -709,7 +709,7 @@ public void RemoveLaxityInterruptionEvent (LaxityInterruptionEvent laxityInterru
 			if(e.getClass().equals(mx.cicese.mcc.teikoku.kernel.events.JobReplicaReleasedEvent.class))
 			{
 				mx.cicese.mcc.teikoku.kernel.events.JobReplicaReleasedEvent jre = (JobReplicaReleasedEvent) e;
-				if(jre.getReleasedJob().equals(job))
+				if(jre.getReleasedJob().equals(canceledJob))
 				{
 					this.eventQueue.remove(e);
 					break;
@@ -719,7 +719,7 @@ public void RemoveLaxityInterruptionEvent (LaxityInterruptionEvent laxityInterru
 			{
 				de.irf.it.rmg.core.teikoku.kernel.events.JobCompletedEvent jre = 
 						(de.irf.it.rmg.core.teikoku.kernel.events.JobCompletedEvent) e;
-				if(jre.getCompletedJob().equals(job))
+				if(jre.getCompletedJob().equals(canceledJob))
 				{
 					this.eventQueue.remove(e);
 					break;
