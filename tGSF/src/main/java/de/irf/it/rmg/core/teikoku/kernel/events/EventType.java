@@ -45,6 +45,10 @@ public enum EventType {
 	
 	JOB_CANCELED(),
 
+	//alpha
+	JOB_INTERRUPTED(),
+	//alpha>>
+	
 	JOB_REPLICATED(),
 	/**
 	 * TODO: not yet commented

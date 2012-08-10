@@ -196,7 +196,6 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 	 * @return the total coreWorkingTime 
 	 */
 	public double getCoresWorkingTime(){
-		//System.out.println("Work: "+ coresWorkingTime);
 		return coresWorkingTime;
 	}
 
@@ -204,7 +203,6 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 	 * @return the total coreIdleTime 
 	 */
 	public double getCoresIdleTime(){
-		System.out.println("Id: "+ coresIdleTime);
 		return coresIdleTime;
 	}
 
@@ -219,17 +217,18 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 	 * @param time the offtime to add
 	 */
 	public void setCoresOffTime(double time){
-		//this.coresOffTime += time;
-		//Original Version
-		this.coresOffTime = time;
+		this.coresOffTime += time;
 	}
 	/**
 	 * @param time the working time to add
 	 */
 	public void setCoresWorkingTime(double time){
-		System.out.println("Antes:::"+this.coresWorkingTime);
+		//alpha
+		//System.out.println("Antes:::"+this.coresWorkingTime);
+		//alpha>>
 		this.coresWorkingTime += time;
-		System.out.println("W= "+time+"\n"+"WORK::::" + this.coresWorkingTime);
+		//alpha
+		//System.out.println("W= "+time+"\n"+"WORK::::" + this.coresWorkingTime);
 	}
 
 	/**
@@ -237,7 +236,7 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 	 */
 	public void setCoresIdleTime(double time){
 		this.coresIdleTime += time;
-		System.out.println("IDLEFINAL:"+ time);
+		//System.out.println("IDLEFINAL:"+ time);
 	}
 
 	/**
@@ -341,6 +340,8 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 		Kernel.getInstance().dispatch(new CorePowerOnEvent(eventTime,this.getSite()));
 		
 	}
+		
+	
 	
 	/**
 	 * 
@@ -350,8 +351,9 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 		// TODO Auto-generated method stub
 		Long now = new Long (e.getTimestamp().timestamp()); 	
 		//alpha
-		System.out.println("ENCENDIENDO SITIO");
-		log.trace( "power on event " + Clock.instance().now().toString());
+		//System.out.println("ENCENDIENDO SITIO");
+		//log.trace( "power on event " + Clock.instance().now().toString());
+		//alpha>>
 		if(this.isOff()) {
 			this.setOffTime(this.getOffTime() + (now-getLastEventTime()));
 			this.setnTurnOn(this.getnTurnOn() + 1);
@@ -368,10 +370,10 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 	 */
 	public void deliverSitePowerOffEvent(SitePowerOffEvent e) {
 		// TODO Auto-generated method stub
-		//Alpha
-		System.out.println("SitePowerOFF");
-		log.trace("Site " + e.getSite().getName() + " power off event " + Clock.instance().now().toString());
-
+		//alpha
+		//System.out.println("SitePowerOFF");
+		//log.trace("Site " + e.getSite().getName() + " power off event " + Clock.instance().now().toString());
+		//alpha>>
 		Long now = new Long (e.getTimestamp().timestamp());
 		if(this.getSite().getScheduler().getSchedule().getScheduledJobs().isEmpty() && this.getSite().getReleasedSiteQueue().getQueue().isEmpty())	{
 			if(this.getSite().getSiteEnergyManager().isOn()) {
@@ -379,9 +381,6 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 				this.setOnTime(this.getOnTime()+ (now-getLastEventTime()));
 				this.setnTurnOff(this.getnTurnOff() + 1);
 				this.turnOff();
-				// alpha
-				//this.coresIdleTime += (now-getLastEventTime());
-				//System.out.println("Now: "+ now +" getLastEventTime(): "+ getLastEventTime());
 			}
 			else {
 				this.setOffTime (this.getOffTime()+(now-getLastEventTime()));
@@ -431,13 +430,12 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 		Long now = new Long (e.getTimestamp().timestamp());
 		ResourceBundle resources = job.getResources();
 		int quantity = resources.size();
-		System.out.println("Core power off");
+		
 		for (int i = 0 ; i < quantity;i++) {
 			if (!onCore.isEmpty()) {
 				int coreNumber = resources.get(i).getOrdinal();
 				coreNumber--;
 				this.coreEM.get(coreNumber).powerOff(now);
-				
 				this.setCoresOnTime(this.coreEM.get(coreNumber).getOnTime());
 				this.setCoresWorkingTime(this.coreEM.get(coreNumber).getWorkTime());
 				this.setCoresIdleTime(this.getCoresOnTime()-this.getCoresWorkingTime());
@@ -537,7 +535,6 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 	public void deliverCorePowerOnEvent (CorePowerOnEvent e) {
 		Long now = new Long (e.getTimestamp().timestamp());
 		//ResourceBundle op = this.coreOp();			//Lista de recursos que estan prendidos y ocupados
-		System.out.println("Encendiendo core");
 		if (!this.offCore.isEmpty()) {
 			coreEM.get(offCore.get(0).getOrdinal()-1).powerOn(now);
 			
@@ -650,13 +647,6 @@ public class SiteEnergyManager extends AbstractEnergyManager{
 	}
 	
 	
-	//alpha
-	
-	public double getIdleTime(double timeStarted,double timeCompleted)
-	{
-		
-		return timeCompleted - timeStarted;
-	}
 	
 	
 }	

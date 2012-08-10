@@ -237,7 +237,7 @@ public class ComputeSiteEventHandler implements TimeChangeListener,TypeChangeLis
 	@MomentOfNotification(value=NotificationTime.HANDLE)
 	public void deliverStartedEvent(JobStartedEvent event){
 		//First check tag-existence
-		//alpha
+		
 		
 		//alpha
 		Job job = event.getStartedJob();
@@ -251,7 +251,7 @@ public class ComputeSiteEventHandler implements TimeChangeListener,TypeChangeLis
 			this.site.getSiteEnergyManager().requestCoreTurnOn(event);
 		
 			}}
-		//<alpha
+		//<alpha 
 		
 		
 		if (event.getTags().containsKey(this.site.getUUID().toString())){
@@ -592,14 +592,14 @@ public void deliverSLAreviewEvent(SLAReviewEvent event)
 {
 	if (event.getTags().containsKey(this.site.getUUID().toString())) {
 	
-		Job j = event.getSuspendedJob();
 		
-		System.out.println("///////========////");
-		//alpha
-		this.site.getSiteEnergyManager().requestCoreTurnOff(event, j);
+			
+		Job suspendedJob = event.getSuspendedJob();
+		//this.site.getSiteEnergyManager().requestCoreTurnOff(event, suspendedJob);
+	
+		
 		//alpha>
 		
-		Job suspendedJob = event.getSuspendedJob();
 		//if (suspendedJob.getProvenance().getLastCondition()==this.site){
 			// if the last condition of the Job was STARTED the job had been executed before a new job
 			// arrived so its COMPLETED event should be eliminated
@@ -624,7 +624,9 @@ public void deliverSLAreviewEvent(SLAReviewEvent event)
 						
 						
 						suspendedJob.getLifecycle().addEpisode(State.INTERRUPTED);
-					
+						//alpha
+						//System.out.println("INTERRUPTION::"+suspendedJob.getRuntimeInformation().getRunningTime());
+						
 					} catch (IllegalOccupationException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -794,6 +796,19 @@ public void deliverSLAreviewEvent(SLAReviewEvent event)
 			site.getReleasedSiteQueue().notify(e);
 		}
 	}
+	
+	//alpha
+	/*
+	@AcceptedEventType(value=JobInterruptedEvent.class)
+	@MomentOfNotification(value=NotificationTime.HANDLE)
+	public void deliverJobInterruptedEvent(JobInterruptedEvent e)
+	{
+		if (e.getTags().containsKey(this.site.getUUID().toString())){
+			//site.getSiteEnergyManager().deliverJobInterruptedEvent(e);
+			//site.getReleasedSiteQueue().notify(e);
+		}
+	}
+	*/
 	
 	
 	

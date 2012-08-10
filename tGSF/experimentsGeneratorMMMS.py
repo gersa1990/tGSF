@@ -22,7 +22,7 @@ NumberMachines = [1,2,4,8,16,32,64]
 
 for j in range(len(NumberMachines)):
     for i in range(len(SLAStrings)):
-        exectString = 'python properiesGenerator.py -f '+'C:\Users\sergio\workspace\Experiments\Multiple_Machines_Week\\'+'Machines_' + str(NumberMachines[j]) +'\\'+ 'SLA_' + SLALabels[i] +'\\ -n 30 -c teikoku_1_ -s {' + concString(SLAStrings[i],i) + '} -m ' + str(NumberMachines[j])
+        exectString = 'python properiesGenerator.py -f ' + 'C:/users/sergio/workspace/Experiments/Multiple_Machines_Week\\' + 'Machines_' + str(NumberMachines[j]) +'\\'+ 'SLA_' + SLALabels[i] +'\\ -n 30 -c teikoku_1_ -s {' + concString(SLAStrings[i],i) + '} -m ' + str(NumberMachines[j])
         os.system(exectString)
 
     

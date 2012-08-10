@@ -31,6 +31,7 @@ public class GridEnergyManager extends AbstractEnergyManager{
 		for(Site s:sites.values()) {
 			if (s.getName().compareTo("site0") != 0)
 				gridSize += s.getSiteInformation().getProvidedResources().size();
+			
 		}
 			return gridSize;
 	}
@@ -55,6 +56,7 @@ public class GridEnergyManager extends AbstractEnergyManager{
 		for(Site s:sites.values()) {
 			if (s.getName().compareTo("site0") != 0)
 				energyConsumption+=s.getSiteEnergyManager().getEnergyConsumption();
+				
 		}
 		//Galleta
 		//System.out.println("Grid consumed "+energyConsumption+" Watts");
@@ -88,12 +90,13 @@ public class GridEnergyManager extends AbstractEnergyManager{
 				times[1] = s.getSiteEnergyManager().getCoresOffTime();
 				times[2] = s.getSiteEnergyManager().getCoresIdleTime();
 				times[3] = s.getSiteEnergyManager().getCoresWorkingTime();
-				System.out.println("tiempo iddle: " + times[2] );
-				System.out.println("OFFTIME:::"+ times[1]);
-				/*times[0] /= s.getSiteInformation().getProvidedResources().size();
+			
+				times[0] /= s.getSiteInformation().getProvidedResources().size();
 				times[1] /= s.getSiteInformation().getProvidedResources().size();
 				times[2] /= s.getSiteInformation().getProvidedResources().size();
-				times[3] /= s.getSiteInformation().getProvidedResources().size();*/
+				times[3] /= s.getSiteInformation().getProvidedResources().size();
+				
+			
 			}
 		}		
 		return times;	

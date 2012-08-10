@@ -25,6 +25,7 @@ public class Energy_Grid extends AbstractMetric {
 	 */
 	private double n;
 
+	
 	/**
 	 * Bounded slowdown
 	 */
@@ -108,6 +109,14 @@ public class Energy_Grid extends AbstractMetric {
 	 */
 	private double timeSum;
 	
+	//alpha
+	long worktime = 0;
+	
+	long initialtime;
+	
+	long idletime;
+	//alpha>>
+	
 	/**
 	 * Class constructor
 	 */
@@ -173,6 +182,11 @@ public class Energy_Grid extends AbstractMetric {
 	public void deliverCompletedEvent(JobCompletedEvent event){
 		Job job=event.getCompletedJob();
 		this.handleCompletedEvent(job,DateHelper.convertToSeconds(TimeHelper.toLongValue(event.getTimestamp())));
+		//alpha
+		System.out.println("RUNTIME:::"+ job.getRuntimeInformation().getRunningTime());
+		
+		
+		
 	}// End deliverCompletedEvent
 	
 	@AcceptedEventType(value=SitePowerOffEvent.class)
@@ -181,9 +195,36 @@ public class Energy_Grid extends AbstractMetric {
 	}// End deliverCompletedEvent
 	
 	//alpha
+	/*
+	@AcceptedEventType(value=JobStartedEvent.class)
+	public void deliverJobStartedEvent(JobStartedEvent e){
+		Job job=e.getStartedJob();
+		this.handleJobStartedEvent(job,DateHelper.convertToSeconds(TimeHelper.toLongValue(e.getTimestamp())));
+	}
 	
+	private void handleJobStartedEvent(Job job,long timestamp) {
+		// TODO Auto-generated method stub
+		
+		
+		//System.out.println("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+		
+	}
+
+	@AcceptedEventType(value=JobInterruptedEvent.class)
+	public void deliverJobInterruptedEvent(JobInterruptedEvent e){
+		Job job=e.getInterruptedJob();
+		this.handleJobInterruptedEvent(job,DateHelper.convertToSeconds(TimeHelper.toLongValue(e.getTimestamp())));
+	}
 	
-	
+	private void handleJobInterruptedEvent(Job job,long timestamp) {
+		// TODO Auto-generated method stub
+		
+		
+		System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		
+	}
+	*/
+	//alpha>>
 	
 	private void assignNewValues()
 	{
@@ -193,8 +234,8 @@ public class Energy_Grid extends AbstractMetric {
 		values[2] = rho;
 		values[3] = e;
 		values[4] = times[1];
-		values[5] = times[2];
-		values[6] = times[3];
+		values[5] = idletime;
+		values[6] = worktime;
 		values[7] = (1/n)*sbsd;
 		values[8] = (1/n)*swct;
 		values[9] = util;
@@ -213,10 +254,7 @@ public class Energy_Grid extends AbstractMetric {
 		this.n++;
 		swt += ((SWFJob) job).getWaitTime();
 		e = this.gridEnergyManager.getEnergyConsumption();
-		//alpha
-		System.out.println("Started :" + job.getReleaseTime().timestamp());
-		System.out.println("completed: "+ timestamp);
-		//System.out.println("IDLETIME: "+ this.getSite().getSiteEnergyManager().getIdleTime(job.getReleaseTime().timestamp(), timestamp));
+		
 		//2522574337
 		long work = this.gridEnergyManager.getWork();
 		long longest = this.gridEnergyManager.getLongest();
@@ -253,7 +291,10 @@ public class Energy_Grid extends AbstractMetric {
 		
 		cOpt = Math.max(longest, (work/m));
 		this.rho = c/cOpt;
-		
+		//alpha , sumamos el runtime de este trabajo completado
+		operaciones(job,this.cMax);
+
+		//alpha>>
 		this.assignNewValues();
 	} // End handleEvent
 
@@ -261,7 +302,6 @@ public class Energy_Grid extends AbstractMetric {
 		// TODO Auto-generated method stub
 		e = this.gridEnergyManager.getEnergyConsumption();
 		e /= timestamp;
-		System.out.println("*******************************");
 		//Galleta
 		turns = this.gridEnergyManager.getTurnOffTimes();
 		times = this.gridEnergyManager.getTimes();
@@ -277,6 +317,21 @@ public class Energy_Grid extends AbstractMetric {
 	@Override
 	protected double calculateResponseTime(Job j) {
 		return ah.calculateAverage(super.calculateResponseTime(j));
+	}
+	
+	protected void operaciones(Job job,double cmax)
+	{
+	
+		worktime += job.getRuntimeInformation().getRunningTime();
+		
+		if(job.getName().compareTo("1")==0)
+		{
+			initialtime = job.getReleaseTime().timestamp()/1000;	
+		}
+		
+		idletime = ((long)cmax - initialtime) - worktime;
+		//System.out.println("idle::"+idletime);
+		
 	}
 	
 }
